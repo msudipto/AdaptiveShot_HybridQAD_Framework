@@ -68,7 +68,7 @@ pip install -r requirements.txt
 Clone the repository and initialize the local environment:
 
 ```powershell
-git clone <repository-url>
+git clone https://github.com/msudipto/AdaptiveShot_HybridQAD_Framework.git
 cd AdaptiveShot-HybridQAD-Framework
 ```
 
@@ -193,16 +193,16 @@ This plotting step does not retrain the QNN or rerun finite-shot inference.
 ## Authors and Collaborators
 
 **Mubassir Serneabat Sudipto**  
-Department of Electrical and Computer Engineering, College of Engineering, Iowa State University, Ames, Iowa, USA  
+Electrical and Computer Engineering, College of Engineering, Iowa State University, Ames, Iowa, USA  
 Email: msudipto@iastate.edu
 
 **Shakil Ahmed**  
-Department of Computer Science, College of Computing, Grand Valley State University, Allendale, Michigan, USA  
+Computer Science, College of Computing, Grand Valley State University, Allendale, Michigan, USA  
 Email: ahmeshak@gvsu.edu
 
-**Ashfaq Khokhar, Fellow, IEEE**  
+**Ashfaq Khokhar**  
 Carl R. Ice College of Engineering, Kansas State University, Manhattan, Kansas, USA  
-Email: akhokhar@k-state.edu
+Email: akhokhar@ksu.edu
 
 **Samir M. Iqbal**  
 College of Computing, Grand Valley State University, Allendale, Michigan, USA  
@@ -238,4 +238,4 @@ This research repository supports reproducible work on trustworthy quantum machi
 ---
 
 Correspondence: Mubassir Serneabat Sudipto; Shakil Ahmed; Ashfaq Khokhar; Samir M. Iqbal  
-Emails: msudipto@iastate.edu, ahmeshak@gvsu.edu, akhokhar@k-state.edu, iqbalsa@gvsu.edu
+Emails: msudipto@iastate.edu, ahmeshak@gvsu.edu, akhokhar@ksu.edu, iqbalsa@gvsu.edu
