@@ -1,0 +1,73 @@
+experiment:
+  title: "Adaptive-Shot Hybrid Quantum Anomaly Detection for Tactile Internet Security: Reliability-Aware Measurement Allocation Under Resource Constraints"
+
+  # This experiment deliberately uses a leakage-safe train/validation/test protocol.
+  # CESNET-TimeSeries24 is an operational proxy benchmark; it is NOT described
+  # as a dedicated Tactile Internet or haptic-traffic dataset.
+  data:
+    glob: "data/raw/cesnet_timeseries24/ip_addresses_sample/agg_10_minutes/**/*.csv"
+    candidate_size: 4875
+    sampling_seed: 42
+    candidate_npz: "data/processed/cesnet_raw_candidates_4875.npz"
+    chunksize: 100000
+    feature_cols:
+      - n_flows
+      - n_packets
+      - n_bytes
+      - n_dest_asn
+      - n_dest_ports
+      - n_dest_ip
+      - tcp_udp_ratio_packets
+      - tcp_udp_ratio_bytes
+      - dir_ratio_packets
+      - dir_ratio_bytes
+      - avg_duration
+      - avg_ttl
+
+  split:
+    output_dir: "data/processed/splits"
+    train_fraction: 0.60
+    val_fraction: 0.20
+    test_fraction: 0.20
+    seeds: [42, 43, 44, 45, 46]
+    protocols: [random, group, temporal]
+    iqr_k: 1.5
+    q_susp: 0.85
+    q_high: 0.95
+
+  model:
+    n_qubits: 12
+    n_layers: 2
+    use_embedder: true
+    embed_hidden: 64
+    embed_layers: 2
+    angle_scale: 3.141592653589793
+    use_head: true
+    head_hidden: 32
+    diff_method: "adjoint"
+    epochs: 20
+    batch_size: 32
+    eval_batch_size: 64
+    lr: 0.002
+    weight_decay: 0.0001
+    grad_clip_norm: 1.0
+    prefer_cuda: false
+    output_dir: "artifacts/source_qnn"
+
+  adaptive_shots:
+    stages: [128, 256, 512, 1024]
+    measurement_reps: 10
+    calibration_reps: 20
+    calibration_quantiles: [0.90, 0.95, 0.99]
+    primary_quantile: 0.95
+    reconstruction_tolerance: 0.0001
+    random_seed_base: 73000
+    output_dir: "artifacts/adaptive_shots"
+
+  aggregation:
+    output_dir: "artifacts/summary"
+    bootstrap_reps: 10000
+    bootstrap_seed: 2026
+
+  figures:
+    output_dir: "artifacts/figures"

@@ -1,0 +1,72 @@
+{
+  "n_figures": 8,
+  "output_dir": "artifacts/paper3/figures",
+  "primary_policy": "AS-VQC-95",
+  "figures": {
+    "Figure 1": {
+      "stem": "fig1_auc_deviation_vs_shots",
+      "purpose": "AUC deviation from analytic inference versus average measurement budget.",
+      "files": [
+        "artifacts/paper3/figures/fig1_auc_deviation_vs_shots.pdf",
+        "artifacts/paper3/figures/fig1_auc_deviation_vs_shots.png"
+      ]
+    },
+    "Figure 2": {
+      "stem": "fig2_reliability_measurement_frontier",
+      "purpose": "Primary reliability\u2013resource frontier for fixed and adaptive policies.",
+      "files": [
+        "artifacts/paper3/figures/fig2_reliability_measurement_frontier.pdf",
+        "artifacts/paper3/figures/fig2_reliability_measurement_frontier.png"
+      ]
+    },
+    "Figure 3": {
+      "stem": "fig3_as95_shot_allocation",
+      "purpose": "Fraction of records terminating at each adaptive shot stage.",
+      "files": [
+        "artifacts/paper3/figures/fig3_as95_shot_allocation.pdf",
+        "artifacts/paper3/figures/fig3_as95_shot_allocation.png"
+      ]
+    },
+    "Figure 4": {
+      "stem": "fig4_threshold_distance_allocation",
+      "purpose": "Mechanistic evidence that high-shot allocations concentrate near the security boundary.",
+      "files": [
+        "artifacts/paper3/figures/fig4_threshold_distance_allocation.pdf",
+        "artifacts/paper3/figures/fig4_threshold_distance_allocation.png"
+      ]
+    },
+    "Figure 5": {
+      "stem": "fig5_targeted_vs_shuffled",
+      "purpose": "Paired decision-stability benefit of uncertainty-targeted allocation at matched average budget.",
+      "files": [
+        "artifacts/paper3/figures/fig5_targeted_vs_shuffled.pdf",
+        "artifacts/paper3/figures/fig5_targeted_vs_shuffled.png"
+      ]
+    },
+    "Figure 6": {
+      "stem": "fig6_tpr_fpr_operating_points",
+      "purpose": "Security operating-point behavior across low-shot, adaptive, and high-shot policies.",
+      "files": [
+        "artifacts/paper3/figures/fig6_tpr_fpr_operating_points.pdf",
+        "artifacts/paper3/figures/fig6_tpr_fpr_operating_points.png"
+      ]
+    },
+    "Figure 7": {
+      "stem": "fig7_calibration_vs_shots",
+      "purpose": "Probability-calibration behavior across measurement budgets.",
+      "files": [
+        "artifacts/paper3/figures/fig7_calibration_vs_shots.pdf",
+        "artifacts/paper3/figures/fig7_calibration_vs_shots.png"
+      ]
+    },
+    "Figure 8": {
+      "stem": "fig8_seedwise_as95_resource_demand",
+      "purpose": "Seed-level variability in adaptive resource demand, including the Group high-escalation checkpoint.",
+      "files": [
+        "artifacts/paper3/figures/fig8_seedwise_as95_resource_demand.pdf",
+        "artifacts/paper3/figures/fig8_seedwise_as95_resource_demand.png"
+      ]
+    }
+  },
+  "note": "All plots are generated from saved Paper 3 experiment artifacts. No experiment is retrained by this plotting module."
+}

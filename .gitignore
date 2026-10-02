@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs / temporary files
+*.log
+*.tmp
+*.bak
+
+# Local datasets and regenerable processed data
+data/raw/
+data/interim/
+data/processed/
+
+# Large/regenerable experiment outputs. Keep curated summaries/figures tracked.
+artifacts/source_qnn/
+artifacts/adaptive_shots/
+
+# Local archives
+*.zip

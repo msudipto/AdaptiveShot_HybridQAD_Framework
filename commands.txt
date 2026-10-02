@@ -1,0 +1,21 @@
+# Adaptive-Shot Hybrid QAD command reference (Windows PowerShell)
+
+cd "<path-to-repository>"
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip setuptools wheel
+pip install -r requirements.txt
+
+# Individual stages
+python -m src.prepare_candidate --config config/adaptive_shots.yaml
+python -m src.make_splits --config config/adaptive_shots.yaml
+python -m src.train_qnn --config config/adaptive_shots.yaml --all
+python -m src.adaptive_shots --config config/adaptive_shots.yaml --all
+python -m src.aggregate --config config/adaptive_shots.yaml
+python -m src.make_combined_figures
+
+# End-to-end execution
+.\run_pipeline.ps1
+
+# Paper-specific equivalent wrapper
+.\run_adaptive-shot_hybrid-qad.ps1

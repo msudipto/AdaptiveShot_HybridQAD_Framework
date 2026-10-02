@@ -1,0 +1,7 @@
+{
+  "n_realization_rows": 1215,
+  "n_seed_level_rows": 135,
+  "n_summary_rows": 27,
+  "n_paired_rows": 54,
+  "hierarchy": "measurement repetitions averaged within training seed before across-seed mean/SD"
+}
