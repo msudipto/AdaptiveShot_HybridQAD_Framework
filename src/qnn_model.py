@@ -107,16 +107,20 @@ class VQCClassifier(nn.Module):
         # Prefer lightning.gpu if installed, else lightning.qubit, else default.qubit.
         dev = None
         self.pl_device_name = "default.qubit"
+        device_init_errors = {}
         for dev_name in ("lightning.gpu", "lightning.qubit", "default.qubit"):
             try:
                 dev = qml.device(dev_name, wires=self.n_qubits)
                 self.pl_device_name = dev_name
                 break
-            except Exception:
-                continue
+            except (ImportError, RuntimeError, ValueError, qml.DeviceError) as exc:
+                device_init_errors[dev_name] = f"{type(exc).__name__}: {exc}"
         if dev is None:
-            dev = qml.device("default.qubit", wires=self.n_qubits)
-            self.pl_device_name = "default.qubit"
+            errors = "; ".join(f"{name} -> {msg}" for name, msg in device_init_errors.items())
+            raise RuntimeError(
+                f"Unable to initialize a PennyLane device for {self.n_qubits} wires. "
+                f"Tried lightning.gpu, lightning.qubit, and default.qubit. Details: {errors}"
+            )
 
         # --------------------------
         # Diff method sanity
