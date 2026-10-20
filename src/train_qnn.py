@@ -12,6 +12,7 @@ import json
 import os
 import random
 import time
+import warnings
 from copy import deepcopy
 from typing import Dict, Iterable, Tuple
 
@@ -34,10 +35,15 @@ def set_seed(seed: int) -> None:
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
-    try:
-        torch.cuda.manual_seed_all(seed)
-    except Exception:
-        pass
+    if torch.cuda.is_available():
+        try:
+            torch.cuda.manual_seed_all(seed)
+        except RuntimeError as exc:
+            warnings.warn(
+                f"Unable to set CUDA RNG seed ({type(exc).__name__}): {exc}",
+                RuntimeWarning,
+                stacklevel=2,
+            )
 
 
 def split_path(cfg: Dict, protocol: str, seed: int) -> str:
