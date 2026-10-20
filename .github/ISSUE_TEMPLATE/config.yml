@@ -1,0 +1,12 @@
+# Disable generic blank issues for external contributors to enforce structured shot-allocation bugs
+blank_issues_enabled: false
+
+# Direct community members to official preprint and discussion channels outside tracking metrics
+contact_links:
+  - name: arXiv Research Preprint (AS-VQC)
+    url: https://arxiv.org
+    about: Read the complete author manuscript, reliability-aware allocation formulas, and data notes.
+    
+  - name: Hugging Face Paper Discussion
+    url: https://huggingface.co
+    about: View the community landing hub for this NeurIPS 2026 SaTQuML Workshop oral presentation.
